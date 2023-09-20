@@ -23,13 +23,13 @@ public class Item {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "barcode", unique = true)
+    private String barcode;
 
     @Column(name = "internal_code")
     private String internal_code;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "price")
@@ -37,4 +37,9 @@ public class Item {
 
     @Column(name = "cost")
     private BigDecimal cost;
+
+    public Item() {
+        this.price = BigDecimal.ZERO;
+        this.cost = BigDecimal.ZERO;
+    }
 }

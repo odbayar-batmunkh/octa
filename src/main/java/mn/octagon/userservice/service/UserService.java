@@ -1,13 +1,10 @@
 package mn.octagon.userservice.service;
 
-import mn.octagon.userservice.entity.Users;
+import mn.octagon.userservice.entity.User;
 import mn.octagon.userservice.model.UserModel;
 import mn.octagon.userservice.repository.IUserRepository;
 import mn.octagon.userservice.response.ResponseModel;
-import org.apache.catalina.User;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +16,7 @@ public class UserService {
     @Autowired
     private IUserRepository userRepository;
 
-    public Users saveUser(Users user) {
+    public User saveUser(User user) {
         return userRepository.save(user);
     }
 
@@ -28,16 +25,16 @@ public class UserService {
         return "Success";
     }
 
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public Users getUserById(Long id) {
+    public User getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public ResponseEntity<ResponseModel<Users>> saveUser1(Users user) {
-        Users savedUser = userRepository.save(user);
+    public ResponseEntity<ResponseModel<User>> saveUser1(User user) {
+        User savedUser = userRepository.save(user);
         return ResponseEntity.ok(new ResponseModel<>("200","Амжилттай", true, savedUser));
     }
 

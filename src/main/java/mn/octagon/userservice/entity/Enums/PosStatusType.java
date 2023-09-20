@@ -1,6 +1,6 @@
 package mn.octagon.userservice.entity.Enums;
 
-public enum PosStatus {
+public enum PosStatusType {
     NORMAL,
     STOPPED,
     LOCKED

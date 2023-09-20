@@ -1,11 +1,10 @@
 package mn.octagon.userservice.controller;
 
 
-import mn.octagon.userservice.entity.Users;
+import mn.octagon.userservice.entity.User;
 import mn.octagon.userservice.model.UserModel;
 import mn.octagon.userservice.response.ResponseModel;
 import mn.octagon.userservice.service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +19,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("save-user")
-    public Users saveUser(@RequestBody Users users) {
+    public User saveUser(@RequestBody User users) {
         return userService.saveUser(users);
     }
 
     @PostMapping("save-user1")
-    public ResponseEntity<ResponseModel<Users>> saveUser1(@RequestBody Users users) {
+    public ResponseEntity<ResponseModel<User>> saveUser1(@RequestBody User users) {
         return userService.saveUser1(users);
     }
 
@@ -35,12 +34,12 @@ public class UserController {
     }
 
     @GetMapping("user-all")
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("user")
-    public Users getUserById(@RequestParam("id") Long id) {
+    public User getUserById(@RequestParam("id") Long id) {
         return userService.getUserById(id);
     }
 

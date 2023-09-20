@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mn.octagon.userservice.entity.Enums.PosStatus;
+import mn.octagon.userservice.entity.Enums.PosStatusType;
 
 @Data
 @AllArgsConstructor
@@ -50,5 +50,5 @@ public class Pos {
 
     @Column(name = "pos_status")
     @Enumerated(EnumType.ORDINAL)
-    private PosStatus pos_status;
+    private PosStatusType pos_status;
 }
